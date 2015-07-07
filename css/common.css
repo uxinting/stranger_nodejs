@@ -1,0 +1,34 @@
+header {
+	width: 100%;
+	height: 44px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	font-size: 20px;
+	text-align: center;
+	line-height: 44px;
+	background: #fff;
+	z-index: 9999;
+	-webkit-box-shadow: 0px 1px 6px #CCC;
+	box-shadow: 0px 1px 6px #CCC;
+	-ms-touch-action: none;
+}
+.nvbt {
+	width:15%;
+	height:100%;
+	float:left;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.nvbt:active {
+	background: #f4f4f4;
+}
+.nvtt {
+	width: 70%;
+	height: 100%;
+	float: left;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}

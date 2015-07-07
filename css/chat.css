@@ -1,0 +1,85 @@
+.chat-container {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+.you, .me {
+    display: block;
+}
+
+.you p, .me p {
+    display: inline-block;
+    color: rgb(67, 67, 67);
+    font-family: serif, 仿宋;
+    font-size: 16px;
+    padding: 5px 12px;
+    margin: 5px;
+    border: solid 1px rgb(192,192,192);
+    border-radius: 4px;
+    max-width: 80%;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.you {
+    text-align: left;
+}
+
+.you p {
+    background: #2999d2;
+}
+
+.me {
+    text-align: right;
+}
+
+.me p {
+    background: white;
+}
+
+.c_ok, .c_err {
+	display: block;
+    color: red;
+    text-align: center;
+    padding: 10px;
+    font-family: 黑体;
+    background: rgb(201, 201, 201);
+}
+.c_ok {
+    color: green;
+}
+
+#chat ul {
+	margin-bottom: 52px;
+	overflow-y: auto;
+}
+
+.control {
+  position: fixed;
+  bottom: 10px;
+  height: 40px;
+  vertical-align: middle;
+  width: 100%;
+}
+.control >input {
+  position: absolute;
+  height: 40px;
+  line-height: 30px;
+  text-indent: 3px;
+  font-family: serif, 仿宋;
+  font-size: 16px;
+  top: 0;
+  left: 0;
+  width: 80%;
+}
+.control >button {
+  position: absolute;
+  height: 40px;
+  top: 0;
+  right: 0;
+  width: 20%;
+  margin: 0;
+  background: #007AFF;
+  border: 1px solid #007AFF;
+  color: white;
+}
