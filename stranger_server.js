@@ -5,7 +5,9 @@ var fs = require('fs')
 var url = require('url')
 var path = require('path')
 var http = require('http')
-var mime = require('./mime').types
+
+var mime = require('mime').types
+var about = require('about')
 
 function HttpServerUrlDispatch( req, res ) {
     var pathname = url.parse( req.url ).pathname;
@@ -13,7 +15,7 @@ function HttpServerUrlDispatch( req, res ) {
 
     switch( pathname ) {
 	case '/about':
-	    console.log( 'about:' + args.msg );
+	    about.write( 'files/about.dat', args.msg );
 	    res.writeHead( 200 );
 	    res.end();
 	break;
