@@ -1,5 +1,7 @@
 (function(w){
 
+	var lisHeight = 48; //body.padding-top
+	
 	function getSomeone() {
 		$('#index').hide();
 		$('#chat').show();
@@ -7,7 +9,11 @@
 		$('#back span').removeClass('hidden');
 		$('header .nvtt').text( 'Hi' );
 		$('#connect').removeClass('active');
-		$('<li class="c_ok"><p>已为你连接上一位朋友，打个招呼吧</p></li>').appendTo($('#chat ul'));
+		
+		var el = $('<li class="c_ok"><p>已为你连接上一位朋友，打个招呼吧</p></li>');
+		el.appendTo($('#chat ul'));
+		
+		lisHeight += parseInt( el.css( 'height' ) );
 	}
 	
 	function onOpen(e) {
@@ -19,9 +25,15 @@
 		
 		console.log('Disconnected.');
 		
+		alert('连接已断开.');
+		
 		$('header .nvtt').text( '遇见' );
 		$('#back span').addClass('hidden');
-		$('<li class="c_err"><p>对方已断开</p></li>').appendTo($('#chat ul'));
+		
+		var el = $('<li class="c_err"><p>连接已断开</p></li>');
+		el.appendTo($('#chat ul'));
+		
+		lisHeight += parseInt( el.css( 'height' ) );
 		
 		$('#chat').hide();
 		$('#index').show();
@@ -34,20 +46,19 @@
 				case 'you':
 					getSomeone();
 				break;
-				case 'close':
-					alert('对方断开了连接.');
-					onClose();
-				break;
 				default:break;
 			}
 		} else {
-			$('<li><p>' + msg.msg + '</p></li>').addClass( msg.from ).appendTo($('#chat ul'));
+			var el = $('<li><p>' + msg.msg + '</p></li>');
+			el.addClass( msg.from ).appendTo($('#chat ul'));
 			
-			var ulH = $('ul').height();
-			var lisH = $('ul li.me, ul li.you').length * $('ul li.me:first').height() +
-					   $('ul li.c_ok, ul li.c_err').length * parseInt($('ul li.c_ok:first').css('height'));
-			if ( ulH < lisH ) {
-				$('ul').scrollTop(lisH - ulH);
+			lisHeight += parseInt( el.css( 'height' ) );
+			
+			var ulH = $('#chat .control').offset().top;
+			console.log( ulH );
+			
+			if ( ulH < lisHeight ) {
+				$('ul').scrollTop(lisHeight - ulH);
 			}
 		}
 	}
@@ -100,8 +111,11 @@
 		}
 	})
 	
-	$('#about').click(function(){
-		alert('About!');
+	$('#about-btn').click(function(){
+		var text = prompt('感谢您使用本应用，欢迎反馈任何建议或意见。\n也可以直接给作者发邮件:\nwu.xinting@hotmail.com', '我想对作者说');
+		if ( text ) {
+			$.get( 'http://112.74.78.178:8081/about', {msg: text});
+		}
 	})
 	
 	$('ul').css({'height': $(w).height()-100+'px'});

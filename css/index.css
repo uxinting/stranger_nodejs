@@ -1,8 +1,6 @@
 html, body {
   background: #f3efef;
   text-align: center;
-  font-family: 'fontello';
-/*   border: 6px solid #f3efef; */
 }
 
 body {
@@ -111,4 +109,8 @@ pre {
 
 header .glyphicon {
 	color: #007AFF;
+}
+
+header .glyphicon:hover {
+	cursor: pointer;
 }

@@ -1,0 +1,32 @@
+#about {
+	display: block;
+	position: fixed;
+	padding: 20px;
+	top: 140px;
+	left: 10%;
+	width: 80%;
+	height: 200px;
+	-webkit-box-shadow: 0px 1px 6px #CCC;
+	box-shadow: 0px 1px 6px #CCC;
+	background: white;
+	z-index: 100;
+}
+
+#about p {
+	padding: 20px 0px;
+}
+
+#about input, #about button {
+	position: absolute;
+	bottom: 10px;
+}
+
+#about input {
+	width: calc(80% - 20);
+	left: 20px;
+}
+
+#about button {
+	width: calc(20% - 20);
+	right: 20px;
+}
