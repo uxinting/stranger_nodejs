@@ -84,10 +84,7 @@ wss.on('connection', function(ws) {
     });
 
     ws.on('close', function(e) {
-	if ( ws.you != 'undefined' ) {
-	    ws.you.send( toJson( 'server', 'close' ) );
-	    ws.you.you = 'undefined';
-	}
+	    ws.you.close();
     });
 });
 //End
