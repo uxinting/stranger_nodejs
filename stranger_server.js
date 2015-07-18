@@ -29,7 +29,7 @@ function HttpServerStaticDispatch( req, res, contentType ) {
     fs.readFile("." + req.url, 'binary', function (err, data) {
 	if ( err ) {
 	    res.writeHead( 500, { "Content-Type": 'text/plain' } );
-	    res.end( err );
+	    res.end( ' '+err.toString() );
 	} else {
 	    res.writeHead( 200, { "Content-Type": contentType });
 	    res.write(data, "binary");
@@ -53,7 +53,7 @@ function HttpServerFunc( req, res ) {
 	break;
     }
 }
-http.createServer( HttpServerFunc ).listen( 8081 );
+//http.createServer( HttpServerFunc ).listen( 8081 );
 //End
 
 /**
